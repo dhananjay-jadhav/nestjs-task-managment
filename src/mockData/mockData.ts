@@ -1,6 +1,6 @@
-import { Task, TaskStatus } from "src/task/task.model";
+import { TaskStatus } from "../task/task-status.enum";
 
-export const mockTasks:Task[] = [
+export const mockTasks = [
   {
     id: 'eaf1a1e0-9abe-11eb-9b4a-e34daa97f41e',
     title: 'Stops query Ticket',
