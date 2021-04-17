@@ -45,10 +45,4 @@ export class TaskService {
 
     return true;
   }
-
-  // Implemented using remove method
-  // async deleteTask(id:number): Promise<Task>{
-  //   const task = await this.getTaskByID(id);
-  //   return await this.taskRepository.remove(task);
-  // }
 }

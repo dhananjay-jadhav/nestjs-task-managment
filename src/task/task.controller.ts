@@ -50,10 +50,4 @@ export class TaskController {
   deleteTask(@Param('id', ParseIntPipe) id: number): Promise<Boolean> {
     return this.taskService.deleteTask(id);
   }
-
-  //Implemented using remove method
-  // @Delete('/:id')
-  // deleteTask(@Param('id',ParseIntPipe) id: number):Promise<Task>{
-  //   return this.taskService.deleteTask(id);
-  // }
 }
