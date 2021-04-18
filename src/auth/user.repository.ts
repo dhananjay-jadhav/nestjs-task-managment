@@ -1,15 +1,19 @@
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
 import { EntityRepository, Repository } from 'typeorm';
+import { ConflictException } from '@nestjs/common';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User>{
     async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-        const {fullName,password } = authCredentialsDto;
+        const {userName,password } = authCredentialsDto;
         const user = new User();
-        user.fullName = fullName;
+        user.userName = userName;
         user.password = password;
-
-        await user.save();
+        try{
+         await user.save();
+        }catch(error){
+          throw new ConflictException(error.detail);
+        }
     }
 }
